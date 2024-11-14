@@ -1,18 +1,35 @@
 package ifrn.pi.projeto.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Projeto {
 
-	private Long nome;
+	private String nome;
 	private String email;
 	private String cpf;
 	private String telofe;
 	private String senha;
+	private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	public Long getNome() {
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(Long nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
@@ -48,4 +65,11 @@ public class Projeto {
 		this.senha = senha;
 	}
 
+	@Override
+	public String toString() {
+		return "Projeto [nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", telofe=" + telofe + ", senha=" + senha
+				+ ", id=" + id + "]";
+	}
+
+	
 }
