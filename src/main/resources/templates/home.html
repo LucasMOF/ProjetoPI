@@ -4,13 +4,92 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-<title>Projeto</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>Top Store</title>
 </head>
 <body>
-	 
-  <div th:replace="~{menu :: menu}"></div>
-  <div class="container"></div>
-	<h1>Bem vindo</h1>
+
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+		  <div class="row">
+            <div class="col s12 center-align">
+                <h1>Bem-vindo à Loja de Roupas</h1>
+                <p class="flow-text">Encontre o estilo perfeito para você em um só lugar. Roupas masculinas, femininas e infantis, com qualidade e preço justo!</p>
+            </div>
+        </div>
+
+        <!-- Destaques -->
+        <div class="row">
+            <div class="col s12">
+                <h3 class="center-align">Destaques</h3>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/roupas-femininas.jpg" alt="Roupas Femininas">
+                        <span class="card-title">Moda Feminina</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Explore nossa coleção de roupas femininas. Do casual ao elegante, temos tudo para realçar sua beleza.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="/moda-feminina">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/roupas-masculinas.jpg" alt="Roupas Masculinas">
+                        <span class="card-title">Moda Masculina</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Descubra nosso catálogo de roupas masculinas. Estilo, conforto e qualidade em um só lugar.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="/moda-masculina">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/images/roupas-infantis.jpg" alt="Roupas Infantis">
+                        <span class="card-title">Moda Infantil</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Roupas divertidas e confortáveis para os pequenos. Venha conferir nossa linha infantil.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="/moda-infantil">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sobre a Loja -->
+        <div class="row">
+            <div class="col s12">
+                <h3 class="center-align">Sobre Nós</h3>
+                <p class="flow-text center-align">
+                    Nossa loja é especializada em oferecer roupas de alta qualidade e acessíveis para toda a família. Com anos de experiência no mercado, buscamos sempre trazer novidades e tendências para nossos clientes.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer blue">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h5 class="white-text">Contato</h5>
+                    <p class="grey-text text-lighten-4">Email: contato@lojaderoupas.com | Telefone: (11) 99999-9999</p>
+                </div>
+            </div>
+	</div>
 </body>
 </html>

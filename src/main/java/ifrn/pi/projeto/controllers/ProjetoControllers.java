@@ -14,18 +14,24 @@ public class ProjetoControllers {
 
 	@Autowired
 	private ProjetoRepository er;
-	
-	@RequestMapping("projeto/form")
+
+	@RequestMapping("/projeto/form")
 	public String cadastro() {
 		return "projeto/formCadastro";
 	}
+
+	@RequestMapping("/projeto/login")
+	public String login() {
+		return "projeto/login";
+	}
+
 	@PostMapping("/projeto")
 	public String adicionar(Projeto projeto) {
-		
+
 		System.out.println(projeto);
 		er.save(projeto);
-		
-		return "projeto/cadastro-adicionado";
+
+		return "home";
 	}
-	
+
 }

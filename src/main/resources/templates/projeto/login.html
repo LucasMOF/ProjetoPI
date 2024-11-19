@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<title>Login</title>
+</head>
+<body>
+
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+		<h1>Login</h1>
+		<form action="/projeto" method="post">
+			<div>
+				<label>E-mail: </label> <input type="email" name="email" required>
+			</div>
+			<div>
+				<label>Senha: </label> <input type="password" name="senha">
+			</div>
+			<div>
+				<button class="btn waves-effect waves-light" type="submit">Entrar
+				<i class="material-icons right">send</i>
+				</button>
+				<button class="btn waves-effect waves-light" type="reset">Limpar</button>
+					<button class="btn waves-effect waves-light" type="button">
+						<a  class="white-text text-darken-2" href="/projeto/form">Cadastre-se</a>
+					</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

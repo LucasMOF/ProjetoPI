@@ -6,4 +6,5 @@ import ifrn.pi.projeto.models.Projeto;
 
 public interface ProjetoRepository extends JpaRepository<Projeto, Long>{
 
+	
 }
