@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.custom-nav-wrapper .nav-wrapper {
+    background-color: black; /* Fundo preto */
+    height: 100px; /* Altura maior */
+    display: flex; /* Alinhamento */
+    align-items: center; /* Centraliza verticalmente os itens */
+}
+
+.custom-nav-wrapper .nav-wrapper img {
+    max-height: 80px; /* Ajuste de altura da imagem */
+}
+
+.custom-nav-wrapper .nav-wrapper ul {
+    line-height: 100px; /* Centraliza o texto no menu */
+}

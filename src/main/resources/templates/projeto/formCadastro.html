@@ -4,36 +4,40 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
 <title>Cadastro</title>
 </head>
 <body>
 
 	<div th:replace="~{menu :: menu}"></div>
 	<div class="container">
-	<h1>Cadastre-se</h1>
-	<form action="/projeto" method="post">
-		<div>
-			<label>Nome: </label> <input type="text" name="nome">
-		</div>
-		<div>
-			<label>E-mail: </label> <input type="email" name="email">
-		</div>
-		<div>
-			<label>CPF: </label> <input type="text" name="cpf">
-		</div>
-		<div>
-			<label>Telefone: </label> <input type="text" name="telefone">
-		</div>
-		<div>
-			<label>Senha: </label> <input type="password" name="senha">
-		</div>
-		<div>
-			<button type="submit">Cadastrar-se</button>
-			<button type="reset">Limpar</button>
-		</div>
-	</form>
+		<h1>Cadastre-se</h1>
+		<form action="/projeto" method="post">
+			<div>
+				<label>Nome: </label> <input type="text" name="nome" required>
+			</div>
+			<div>
+				<label>E-mail: </label> <input type="email" name="email" required>
+			</div>
+			<div>
+				<label>CPF: </label> <input type="text" name="cpf" required>
+			</div>
+			<div>
+				<label>Telefone: </label> <input type="text" name="telefone" required>
+			</div>
+			<div>
+				<label>Senha: </label> <input type="password" name="senha" required>
+			</div>
+			<div>
+				<button type="submit">Cadastrar-se</button>
+				<button type="reset">Limpar</button>
+			</div>
+
+		</form>
 	</div>
+	<br>
+	<div th:replace="~{menu :: footer}"></div>
 </body>
 </html>

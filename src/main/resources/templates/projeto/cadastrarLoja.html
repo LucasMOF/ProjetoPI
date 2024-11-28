@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+<title>Cadastrar sua Loja</title>
+</head>
+<body>
+
+	<div th:replace="~{menu :: menu}"></div> 
+	<div class="container">
+		<h1>Cadastre sua Loja</h1>
+		<form action="/projeto/loja" method="post">
+			<div>
+				<label>Nome: </label> <input type="text" name="nomeloja" required>
+			</div>
+			<div>
+				<label>Endereço: </label> <input type="text" name="endereco" required>
+			</div>
+			<div>
+				<button type="submit">Cadastrar</button>
+				<button type="reset">Limpar</button>
+			</div>
+
+		</form>
+	</div>
+	<br>
+	<div th:replace="~{menu :: footer}"></div>
+</body>
+</html>

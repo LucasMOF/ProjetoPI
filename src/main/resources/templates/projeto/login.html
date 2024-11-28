@@ -19,18 +19,20 @@
 				<label>E-mail: </label> <input type="email" name="email" required>
 			</div>
 			<div>
-				<label>Senha: </label> <input type="password" name="senha">
+				<label>Senha: </label> <input type="password" name="senha" required>
 			</div>
 			<div>
-				<button class="btn waves-effect waves-light" type="submit">Entrar
-				<i class="material-icons right">send</i>
+				<button class="btn waves-effect waves-light" type="submit">
+					Entrar <i class="material-icons right">send</i>
 				</button>
 				<button class="btn waves-effect waves-light" type="reset">Limpar</button>
-					<button class="btn waves-effect waves-light" type="button">
-						<a  class="white-text text-darken-2" href="/projeto/form">Cadastre-se</a>
-					</button>
+				<button class="btn waves-effect waves-light" type="button">
+					<a class="white-text text-darken-2" href="/projeto/form">Cadastre-se</a>
+				</button>
 			</div>
 		</form>
 	</div>
+	<br>
+	<div th:replace="~{menu :: footer}"></div>
 </body>
 </html>
