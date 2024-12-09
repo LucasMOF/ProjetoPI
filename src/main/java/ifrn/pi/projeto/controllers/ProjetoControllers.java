@@ -85,7 +85,7 @@ public class ProjetoControllers {
 		md.addObject("loja", loja);
 		
 		List<Produto> produtos = cr.findByLoja(loja);
-		md.addObject("convidados", produtos);
+		md.addObject("produtos", produtos);
 
 		return md;
 	}
@@ -93,7 +93,7 @@ public class ProjetoControllers {
 	@PostMapping("/eventos/{idProduto}")
 	public String salvarProduto(@PathVariable Long idProduto, Produto produto) {
 
-		System.out.println("Id do evento: " + idProduto);
+		System.out.println("Id do produto: " + idProduto);
 		System.out.println(produto);
 
 		Optional<Loja> opt = ar.findById(idProduto);
