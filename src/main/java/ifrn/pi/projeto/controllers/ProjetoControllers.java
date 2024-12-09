@@ -82,13 +82,15 @@ public class ProjetoControllers {
 		}
 		md.setViewName("projeto/detalharLojas");
 		Loja loja = opt.get();
-
 		md.addObject("loja", loja);
+		
+		List<Produto> produtos = cr.findByLoja(loja);
+		md.addObject("convidados", produtos);
 
 		return md;
 	}
 
-	@PostMapping("/{idProduto}")
+	@PostMapping("/eventos/{idProduto}")
 	public String salvarProduto(@PathVariable Long idProduto, Produto produto) {
 
 		System.out.println("Id do evento: " + idProduto);
@@ -103,8 +105,8 @@ public class ProjetoControllers {
 		produto.setLoja(loja);
 
 		cr.save(produto);
-
-		return "redirect:/projeto/{idProduto}";
+		
+		return "redirect:/eventos/{idProduto}";
 
 	}
 }
