@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Loja {
@@ -11,6 +12,8 @@ public class Loja {
 	private String nomeloja;
 	private String endereco;
 	private Long id;
+	@ManyToOne
+	private Projeto lojas;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,6 +47,6 @@ public class Loja {
 		return "Loja [nomeloja=" + nomeloja + ", endereco=" + endereco + ", id=" + id + "]";
 	}
 
-	
+
 
 }
