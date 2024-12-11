@@ -41,17 +41,17 @@ public class ProjetoControllers {
 	}
 
 	@RequestMapping("/projeto/loja")
-	public String loja() {
+	public String loja(Loja loja) {
 		return "projeto/cadastrarLoja";
 
 	}
 
 	@PostMapping("/projeto")
-	public String adicionar(Projeto projeto) {
-
+	public String adicionar(Projeto projeto, Loja loja) {
+		
 		System.out.println(projeto);
 		er.save(projeto);
-
+		ar.save(loja);
 		return "home";
 	}
 
@@ -83,7 +83,7 @@ public class ProjetoControllers {
 		md.setViewName("projeto/detalharLojas");
 		Loja loja = opt.get();
 		md.addObject("loja", loja);
-		
+
 		List<Produto> produtos = cr.findByLoja(loja);
 		md.addObject("produtos", produtos);
 
@@ -101,12 +101,69 @@ public class ProjetoControllers {
 			return "redirect:/projeto";
 		}
 
-		Loja loja= opt.get();
+		Loja loja = opt.get();
 		produto.setLoja(loja);
 
 		cr.save(produto);
-		
+
 		return "redirect:/eventos/{idProduto}";
 
 	}
+
+	@GetMapping("/projeto/{id}/selecionar")
+	public ModelAndView selecionarLoja(@PathVariable Long id) {
+		ModelAndView md = new ModelAndView();
+		Optional<Loja> opt = ar.findById(id);
+		if (opt.isEmpty()) {
+			md.setViewName("redirect:/projeto");
+			return md;
+		}
+		Loja loja = opt.get();
+		md.setViewName("projeto/cadastrarLoja");
+		md.addObject("loja", loja);
+		return md;
+	}
+
+	@GetMapping("/eventos/{idLoja}/produtos/{idProduto}/selecionar")
+	public ModelAndView selecionarProduto(@PathVariable Long idLoja, @PathVariable Long idProduto) {
+		ModelAndView md = new ModelAndView();
+		
+		Optional<Loja> optLoja = ar.findById(idLoja);
+		Optional<Produto> optProduto = cr.findById(idProduto);
+		
+		if (optLoja.isEmpty() || optProduto.isEmpty()) {
+			md.setViewName("redirect:/projeto");
+			return md;
+		}
+		
+		Loja loja= optLoja.get();
+		Produto produtos = optProduto.get();
+
+		if (loja.getId() != produtos.getLoja().getId()) {
+			md.setViewName("redirect:/projeto");
+			return md;
+		}
+		md.setViewName("eventos/detalhes");
+		md.addObject("produto", produtos);
+		md.addObject("loja", loja);
+		md.addObject("produtos", cr.findByLoja(loja));
+		return md;
+	}
+
+	@GetMapping("/projeto/{id}/remover")
+	public String apagarLoja(@PathVariable Long id) {
+		Optional<Loja> opt = ar.findById(id);
+
+		if (!opt.isEmpty()) {
+			Loja loja = opt.get();
+
+			List<Produto> produtos = cr.findByLoja(loja);
+
+			cr.deleteAll(produtos);
+			ar.delete(loja);
+		}
+
+		return "redirect:/projeto/lojas";
+	}
+
 }

@@ -31,9 +31,9 @@
 					<td><a th:href="@{/eventos/{id}(id=${e.id})}"><span
 							th:text="${e.nomeloja}">Nome da Loja</span><a /></td>
 					<td th:text="${e.endereco}">Clube</td>
-					<td><a th:href="@{/eventos/{id}/selecionar(id=${e.id})}"><i
+					<td><a th:href="@{/projeto/{id}/selecionar(id=${e.id})}"><i
 							class="material-icons">edit</i></a> <a
-						th:href="@{/eventos/{id}/remover(id=${e.id})}"> <i
+						th:href="@{/projeto/{id}/remover(id=${e.id})}"> <i
 							class="material-icons">delete</i></a></td>
 				</tr>
 			</tbody>

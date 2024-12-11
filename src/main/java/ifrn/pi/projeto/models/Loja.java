@@ -12,9 +12,7 @@ public class Loja {
 	private String nomeloja;
 	private String endereco;
 	private Long id;
-	@ManyToOne
-	private Projeto lojas;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 

@@ -14,12 +14,14 @@
 	<div th:replace="~{menu :: menu}"></div> 
 	<div class="container">
 		<h1>Cadastre sua Loja</h1>
-		<form action="/projeto/loja" method="post">
+		<form action="/projeto" method="post">
+		<input type="hidden" th:name="id" th:value="${loja.id}">
 			<div>
-				<label>Nome: </label> <input type="text" name="nomeloja" required>
+				<label>Nome: </label> <input type="text" name="nomeloja" th:value="${loja.nomeloja}" required>
+				
 			</div>
 			<div>
-				<label>Endereço: </label> <input type="text" name="endereco" required>
+				<label>Endereço: </label> <input type="text" name="endereco" th:value="${loja.endereco}" required>
 			</div>
 			<div>
 				<button type="submit">Cadastrar</button>

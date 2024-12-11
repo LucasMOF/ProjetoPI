@@ -39,9 +39,14 @@
 				<div class="card">
 					<div class="card-content">
 						<span class="card-title">Adicionar Produto</span>
-						<form action="" method="post">
+						<form action=th:action="@{/eventos/{idLoja}(idLoja=${loja.id})}" method="post">
+						
 							<div>
-								<label>Nome do Produto: </label> <input type="text" name="nomeproduto">
+								<input type="hidden" name="id" th:value=${produto.id}
+									readonly="readonly">
+							</div>
+							<div>
+								<label>Nome do Produto: </label> <input type="text" name="nomeproduto" th:value=${produto.nome}>
 							</div>
 							<div>
 								<label>Tipo: </label> <input type="text" name="tipo">
@@ -53,7 +58,8 @@
 								<label>Cor: </label> <input type="color" name="cor">
 							</div>
 							<div>
-								<label>Disponibilidade: </label> <input type="number" name="disponibilidade">
+								<label>Disponibilidade: </label> <input type="number"
+									name="disponibilidade">
 							</div>
 							<div>
 								<label>Preço: </label> <input type="number" name="preco">
@@ -93,6 +99,12 @@
 									<td th:text="${p.cor}">Fernando</td>
 									<td th:text="${p.disponibilidade}">123</td>
 									<td th:text="${p.preco}">1</td>
+									<td><a
+										th:href="@{/eventos/{idLoja}/produtos/{idProduto}/selecionar(idLoja=${loja.id}, idProduto=${p.id})}"><i
+											class="material-icons">edit</i></a></a> <a
+										th:href="@{/eventos/{idLoja}/produtos/{idProduto}/selecionar(idLoja=${loja.id}, idProduto=${p.id})}">
+											<i class="material-icons">delete</i>
+									</a></td>
 								</tr>
 							</tbody>
 						</table>
