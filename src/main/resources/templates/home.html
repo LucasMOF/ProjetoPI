@@ -11,90 +11,96 @@
 <title>Top Store</title>
 </head>
 <body>
-
 	<div th:replace="~{menu :: menu}"></div>
 	<div th:replace="~{menu :: pesquisa}"></div>
-
-
-
 	<div class="container">
 		<div class="row">
 			<div class="col s12 center-align">
-				<h1>Bem-vindo ao TopStore</h1>
-				<p class="flow-text">Encontre o estilo perfeito para você em um
-					só lugar. Roupas masculinas, femininas e infantis, de acordo com a
-					sua preferência entre qualidade e preço justo!</p>
+				<div class="card-panel grey lighten-3"
+					style="display: inline-block; padding: 10px 30px; border-radius: 12px;">
+					<span class="black-text" style="font-size: 1.8rem;">Bem-vindo
+						ao TopStore</span>
+				</div>
 			</div>
 		</div>
-
+		<div class="row">
+			<div class="col s12 center-align">
+				<div class="card-panel grey lighten-3"
+					style="max-width: 80%; margin: 0 auto; padding: 20px; border-radius: 12px;">
+					<span class="black-text" style="font-size: 1.2rem;">Encontre
+						o estilo perfeito para você em um só lugar. Roupas masculinas,
+						femininas e infantis, de acordo com a sua preferência entre
+						qualidade e preço justo!</span>
+				</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col s12">
-				<h3 class="center-align" style="margin-bottom: 30px;">Destaques</h3>
+				<h3 class="center-align"
+					style="margin-bottom: 30px; font-weight: bold; text-transform: uppercase; font-size: 2.5rem; letter-spacing: 2px;">Destaques</h3>
 			</div>
-
+		</div>
+		<div class="row">
 			<div class="col s12 m4">
-				<div class="card">
+				<div class="card hoverable">
 					<div class="card-image">
-						<img src="/images/roupas-femininas.jpg" alt="Roupas Femininas">
-						<span class="black-text card-title">Moda Feminina</span>
+						<img src="/images/feminino.avif" alt="Fem" width="150">
 					</div>
 					<div class="card-content">
+						<h5>Moda Feminina</h5>
 						<p>Explore nossa coleção de roupas femininas. Do casual ao
 							elegante, temos tudo para realçar sua beleza.</p>
 					</div>
 					<div class="card-action">
-						<a href="/moda-feminina">Ver Mais</a>
+						<a href="/moda-feminina" class="indigo-text text-darken-4">Ver
+							Mais</a>
 					</div>
 				</div>
 			</div>
-
 			<div class="col s12 m4">
-				<div class="card">
+				<div class="card hoverable">
 					<div class="card-image">
-						<img src="/images/roupas-masculinas.jpg" alt="Roupas Masculinas">
-						<span class="black-text card-title">Moda Masculina</span>
+						<img src="/images/masculino.avif" alt="Masc" width="150">
 					</div>
 					<div class="card-content">
+						<h5>Moda Masculina</h5>
 						<p>Descubra nosso catálogo de roupas masculinas. Estilo,
 							conforto e qualidade em um só lugar.</p>
 					</div>
 					<div class="card-action">
-						<a href="/moda-masculina">Ver Mais</a>
+						<a href="/moda-masculina" class="indigo-text text-darken-4">Ver
+							Mais</a>
 					</div>
 				</div>
 			</div>
-
 			<div class="col s12 m4">
-				<div class="card">
+				<div class="card hoverable">
 					<div class="card-image">
-						<img src="/images/roupas-infantis.jpg" alt="Roupas Infantis">
-						<span class="black-text card-title">Moda Infantil</span>
+						<img src="/images/infantil.avif" alt="Infantil" width="150">
 					</div>
 					<div class="card-content">
+						<h5>Moda Infantil</h5>
 						<p>Roupas divertidas e confortáveis para os pequenos. Venha
 							conferir nossa linha infantil.</p>
 					</div>
 					<div class="card-action">
-						<a href="/moda-infantil">Ver Mais</a>
+						<a href="/moda-infantil" class="indigo-text text-darken-4">Ver
+							Mais</a>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<!-- Sobre a Loja -->
 		<div class="row">
 			<div class="col s12">
-				<h3 class="center-align">Sobre Nós</h3>
-				<p class="flow-text center-align">Nosso site é especializada em
-					buscar por você roupas de alta qualidade e acessíveis para toda a
-					família. Buscamos sempre trazer novidades e tendências para nossos
-					usuários, buscando no mercado da região, poupando seu tempo.</p>
+				<h3 class="center-align indigo-text text-darken-3">Sobre Nós</h3>
+				<p class="flow-text center-align grey-text text-darken-2">Nosso
+					site é especializado em buscar por você roupas de alta qualidade e
+					acessíveis para toda a família. Buscamos sempre trazer novidades e
+					tendências para nossos usuários, buscando no mercado da região,
+					poupando seu tempo.</p>
 			</div>
 		</div>
 	</div>
 	<div th:replace="~{menu :: footer}"></div>
-
-
-
 </body>
 </html>

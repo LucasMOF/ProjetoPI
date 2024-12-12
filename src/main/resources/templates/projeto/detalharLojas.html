@@ -6,14 +6,12 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<title>Lojas</title>
+<title>Detalhar Loja</title>
 </head>
 <body>
 	<div th:replace="~{menu :: menu}"></div>
 	<div class="container">
-
-		<h1>Detalhar Lojas</h1>
-
+		<h1>Detalhar Loja</h1>
 		<div class="row">
 			<div class="col s12">
 				<div class="card blue-grey darken-1">
@@ -33,39 +31,45 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="row">
 			<div class="col s12">
 				<div class="card">
 					<div class="card-content">
 						<span class="card-title">Adicionar Produto</span>
-						<form action=th:action="@{/eventos/{idLoja}(idLoja=${loja.id})}" method="post">
-						
+						<form action="#"
+							th:action="@{/eventos/{idLoja}(idLoja=${loja.id})}" method="post">
 							<div>
-								<input type="hidden" name="id" th:value=${produto.id}
+								<input type="hidden" name="id" th:value="${produto != null ? produto.id : ''}"
 									readonly="readonly">
 							</div>
 							<div>
-								<label>Nome do Produto: </label> <input type="text" name="nomeproduto" th:value=${produto.nome}>
+								<label>Nome do Produto: </label> <input type="text"
+									name="nomeproduto"
+									th:value="${produto != null ? produto.nomeproduto : ''}">
 							</div>
 							<div>
-								<label>Tipo: </label> <input type="text" name="tipo">
+								<label>Tipo: </label> <input type="text" name="tipo"
+									th:value="${produto != null ? produto.tipo : ''}">
 							</div>
 							<div>
-								<label>Marca: </label> <input type="text" name="marca">
+								<label>Marca: </label> <input type="text" name="marca"
+									th:value="${produto != null ? produto.marca : ''}">
 							</div>
 							<div>
-								<label>Cor: </label> <input type="color" name="cor">
+								<label>Cor: </label> <input type="color" name="cor"
+									th:value="${produto != null ? produto.cor : ''}">
 							</div>
 							<div>
 								<label>Disponibilidade: </label> <input type="number"
-									name="disponibilidade">
+									name="disponibilidade"
+									th:value="${produto != null ? produto.disponibilidade : ''}">
 							</div>
 							<div>
-								<label>Preço: </label> <input type="number" name="preco">
+								<label>Preço: </label> <input type="number" name="preco"
+									th:value="${produto != null ? produto.preco : ''}">
 							</div>
 							<div>
-								<button type="submit" class="btn">Salver</button>
+								<button type="submit" class="btn">Salvar</button>
 								<button type="reset" class="btn">Limpar</button>
 							</div>
 						</form>
@@ -77,7 +81,7 @@
 			<div class="col s12">
 				<div class="card">
 					<div class="card-content">
-						<span class="card-title">Convidados</span>
+						<span class="card-title">Produtos</span>
 						<table class="highlight">
 							<thead>
 								<tr>
@@ -93,16 +97,17 @@
 							<tbody>
 								<tr th:each="p : ${produtos}">
 									<td th:text="${p.id}">1</td>
-									<td th:text="${p.nomeproduto}">Fernando</td>
-									<td th:text="${p.tipo}">123</td>
-									<td th:text="${p.marca}">1</td>
-									<td th:text="${p.cor}">Fernando</td>
-									<td th:text="${p.disponibilidade}">123</td>
-									<td th:text="${p.preco}">1</td>
+									<td th:text="${p.nomeproduto}">Produto A</td>
+									<td th:text="${p.tipo}">Tipo A</td>
+									<td th:text="${p.marca}">Marca A</td>
+									<td th:text="${p.cor}">Vermelho</td>
+									<td th:text="${p.disponibilidade}">10</td>
+									<td th:text="${p.preco}">99.99</td>
 									<td><a
-										th:href="@{/eventos/{idLoja}/produtos/{idProduto}/selecionar(idLoja=${loja.id}, idProduto=${p.id})}"><i
-											class="material-icons">edit</i></a></a> <a
 										th:href="@{/eventos/{idLoja}/produtos/{idProduto}/selecionar(idLoja=${loja.id}, idProduto=${p.id})}">
+											<i class="material-icons">edit</i>
+									</a> <a
+										th:href="@{/eventos/{idLoja}/produtos/{idProduto}/remover(idLoja=${loja.id}, idProduto=${p.id})}">
 											<i class="material-icons">delete</i>
 									</a></td>
 								</tr>
@@ -112,7 +117,8 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
+	<div th:replace="~{menu :: footer}"></div>
 </body>
 </html>
+

@@ -1,8 +1,8 @@
+
 package ifrn.pi.projeto.controllers;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import ifrn.pi.projeto.models.Loja;
 import ifrn.pi.projeto.models.Produto;
 import ifrn.pi.projeto.models.Projeto;
@@ -20,9 +19,7 @@ import ifrn.pi.projeto.repositories.ProjetoRepository;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-
 public class ProjetoControllers {
-
 	@Autowired
 	private ProjetoRepository er;
 	@Autowired
@@ -43,12 +40,11 @@ public class ProjetoControllers {
 	@RequestMapping("/projeto/loja")
 	public String loja(Loja loja) {
 		return "projeto/cadastrarLoja";
-
 	}
 
 	@PostMapping("/projeto")
 	public String adicionar(Projeto projeto, Loja loja) {
-		
+
 		System.out.println(projeto);
 		er.save(projeto);
 		ar.save(loja);
@@ -65,17 +61,15 @@ public class ProjetoControllers {
 
 	@PostMapping("/projeto/loja")
 	public String adicionarLoja(Loja loja) {
-
 		ar.save(loja);
-
 		return "redirect:/projeto/lojas";
 	}
 
 	@GetMapping("/eventos/{id}")
-	public ModelAndView detalharLoja(@PathVariable Long id) {
+	public ModelAndView detalharLoja(@PathVariable Long id, Produto produto) {
+		
 		ModelAndView md = new ModelAndView();
 		Optional<Loja> opt = ar.findById(id);
-
 		if (opt.isEmpty()) {
 			md.setViewName("redirect:/projeto");
 			return md;
@@ -83,10 +77,8 @@ public class ProjetoControllers {
 		md.setViewName("projeto/detalharLojas");
 		Loja loja = opt.get();
 		md.addObject("loja", loja);
-
 		List<Produto> produtos = cr.findByLoja(loja);
 		md.addObject("produtos", produtos);
-
 		return md;
 	}
 
@@ -100,14 +92,10 @@ public class ProjetoControllers {
 		if (opt.isEmpty()) {
 			return "redirect:/projeto";
 		}
-
 		Loja loja = opt.get();
 		produto.setLoja(loja);
-
 		cr.save(produto);
-
 		return "redirect:/eventos/{idProduto}";
-
 	}
 
 	@GetMapping("/projeto/{id}/selecionar")
@@ -127,24 +115,20 @@ public class ProjetoControllers {
 	@GetMapping("/eventos/{idLoja}/produtos/{idProduto}/selecionar")
 	public ModelAndView selecionarProduto(@PathVariable Long idLoja, @PathVariable Long idProduto) {
 		ModelAndView md = new ModelAndView();
-		
 		Optional<Loja> optLoja = ar.findById(idLoja);
 		Optional<Produto> optProduto = cr.findById(idProduto);
-		
 		if (optLoja.isEmpty() || optProduto.isEmpty()) {
 			md.setViewName("redirect:/projeto");
 			return md;
 		}
-		
-		Loja loja= optLoja.get();
-		Produto produtos = optProduto.get();
-
-		if (loja.getId() != produtos.getLoja().getId()) {
+		Loja loja = optLoja.get();
+		Produto produto = optProduto.get();
+		if (loja.getId() != produto.getLoja().getId()) {
 			md.setViewName("redirect:/projeto");
 			return md;
 		}
-		md.setViewName("eventos/detalhes");
-		md.addObject("produto", produtos);
+		md.setViewName("projeto/detalharLojas");
+		md.addObject("produto", produto);
 		md.addObject("loja", loja);
 		md.addObject("produtos", cr.findByLoja(loja));
 		return md;
@@ -153,17 +137,23 @@ public class ProjetoControllers {
 	@GetMapping("/projeto/{id}/remover")
 	public String apagarLoja(@PathVariable Long id) {
 		Optional<Loja> opt = ar.findById(id);
-
 		if (!opt.isEmpty()) {
 			Loja loja = opt.get();
-
 			List<Produto> produtos = cr.findByLoja(loja);
-
 			cr.deleteAll(produtos);
 			ar.delete(loja);
 		}
-
 		return "redirect:/projeto/lojas";
 	}
 
+	@GetMapping("/eventos/{idLoja}/produtos/{idProduto}/remover")
+	public String apagarProduto(@PathVariable Long idLoja, @PathVariable Long idProduto) {
+		Optional<Loja> optLoja = ar.findById(idLoja);
+		Optional<Produto> optProduto = cr.findById(idProduto);
+		if (optLoja.isPresent() && optProduto.isPresent()) {
+			Produto produto = optProduto.get();
+			cr.delete(produto);
+		}
+		return "redirect:/eventos/{idLoja}";
+	}
 }
