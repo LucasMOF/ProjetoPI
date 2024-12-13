@@ -8,37 +8,15 @@
 	rel="stylesheet">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<style>
-/* Garante que o layout ocupe toda a tela */
-html, body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-}
 
-/* O conteúdo principal expande para ocupar o espaço disponível */
-.content {
-	flex: 1 0 auto;
-}
-
-/* O rodapé sempre estará no final */
-footer {
-	flex-shrink: 0;
-	background-color: #212121; /* Cor de fundo opcional */
-	color: white;
-	padding: 20px 0;
-}
-</style>
 </head>
 <body>
 
-	
+
 	<nav class="#212121 grey darken-4 custom-nav-wrapper"
 		th:fragment="menu">
 		<div class="nav-wrapper container">
-			<a href="#" class="brand-logo"></a> <img src="TopStore.png"
+			<a href="#" class="brand-logo"></a> <img src="images/TopStore.png"
 				style="width: 65px; height: auto;">
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="/"><i class="material-icons right">home</i></a></li>
@@ -50,17 +28,7 @@ footer {
 		</div>
 	</nav>
 	<br>
-	<nav th:fragment="pesquisa" class="container">
-		<div class="nav-wrapper">
-			<form>
-				<div class="input-field">
-					<input id="search" type="search" required> <label
-						class="label-icon" for="search"><i class="material-icons">search</i></label>
-					<i class="material-icons">close</i>
-				</div>
-			</form>
-		</div>
-	</nav>
+
 	<nav th:fragment="footer">
 		<footer class="page-footer">
 			<div class="container">
@@ -77,8 +45,8 @@ footer {
 									99931-6024</a></li>
 							<li><a class="grey-text text-lighten-3" href="#!">(84)
 									99610-9964</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">(84) </a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">(84)99418-8793</a></li>
+							<li><a class="grey-text text-lighten-3" href="#!">Extra</a></li>
 						</ul>
 					</div>
 				</div>
@@ -86,7 +54,8 @@ footer {
 			<div class="footer-copyright">
 				<div class="container">
 					© 2024 TopStore. Todos os direitos reservados.<a
-						class="grey-text text-lighten-4 right" href="#!">More Links</a>
+						class="grey-text text-lighten-4 right"
+						href=https://www.instagram.com/top_store_software?igsh=Zzk4dmFwNDdyZ3Vw&utm_source=qr>Instragram</a>
 				</div>
 			</div>
 		</footer>
